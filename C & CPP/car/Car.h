@@ -8,8 +8,8 @@ class Car : public Vehicle{
             Vehicle(engine, producer, model, price, weight, maxSpeed, year), _sitCount(sitCount) {}
 
         ~Car() {
-            Vehicle* vPtr = dynamic_cast<Vehicle*>(this);
-            std::cout << "The " << vPtr->getProducer() << " " << vPtr->getModel() << " has been deleted.\n" << std::endl;
+            // Vehicle* vPtr = dynamic_cast<Vehicle*>(this);
+            std::cout << "The " << getProducer() << " " << getModel() << " has been deleted.\n" << std::endl;
         }
 
         friend std::ostream& operator<<(std::ostream& os, const Car& car) {

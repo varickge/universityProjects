@@ -8,8 +8,8 @@ class Truck : public Vehicle{
             Vehicle(engine, producer, model, price, weight, maxSpeed, year), _capcity(capcity) {}
 
         ~Truck() {
-            Vehicle* vPtr = dynamic_cast<Vehicle*>(this);
-            std::cout << "The " << vPtr->getProducer() << " " << vPtr->getModel() << " has been deleted.\n" << std::endl;
+            // Vehicle* vPtr = dynamic_cast<Vehicle*>(this);
+            std::cout << "The " << getProducer() << " " << getModel() << " has been deleted.\n" << std::endl;
         }
 
         friend std::ostream& operator<<(std::ostream& os, const Truck& truck) {
@@ -24,26 +24,26 @@ class Truck : public Vehicle{
         }
 
         void start() override {
-            Vehicle* vPtr = dynamic_cast<Vehicle*>(this);
-            vPtr->setIsRunning(true);
-            std::cout << "The" << vPtr->getProducer() << " " << vPtr->getModel() << "(truck) started going." << std::endl;
+            //Vehicle* vPtr = dynamic_cast<Vehicle*>(this);
+            setIsRunning(true);
+            std::cout << "The" << getProducer() << " " << getModel() << "(truck) started going." << std::endl;
         }
         
         void accelerate(double tillVelocity) override {
-            Vehicle* vPtr = dynamic_cast<Vehicle*>(this);
-            int currVel = vPtr->getVelocity();
-            int maxSpeed = vPtr->getMaxSpeed();
+            // Vehicle* vPtr = dynamic_cast<Vehicle*>(this);
+            int currVel = getVelocity();
+            int maxSpeed = getMaxSpeed();
             while (currVel != tillVelocity && currVel <= maxSpeed) {
                 currVel++;
             }
-            vPtr->setVelocity(currVel);
-            std::cout << "The " << vPtr->getProducer() << " " << vPtr->getModel() << "'s (truck) current velocity is " << vPtr->getVelocity() << " km/h." << std::endl;
+            setVelocity(currVel);
+            std::cout << "The " << getProducer() << " " << getModel() << "'s (truck) current velocity is " << getVelocity() << " km/h." << std::endl;
         }
 
         void stop() override {
-            Vehicle* vPtr = dynamic_cast<Vehicle*>(this);
-            vPtr->setIsRunning(false);
-            std::cout <<  "The " << vPtr->getProducer() << " " << vPtr->getModel() <<" (truck) stops. " << std::endl;
+            // Vehicle* vPtr = dynamic_cast<Vehicle*>(this);
+            setIsRunning(false);
+            std::cout <<  "The " << getProducer() << " " << getModel() <<" (truck) stops. " << std::endl;
         }
 
         int getCapcity() const {

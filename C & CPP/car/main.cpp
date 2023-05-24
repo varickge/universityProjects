@@ -10,7 +10,7 @@ int main() {
     Car* car1 = new Car(Engine(120, "w111", Engine::PETROL, 2010), "Toyota", "Corolla", 12000, 2100, 190, 2022, 5);
     Car* car2 = new Car(Engine(300, "w10", Engine::PETROL, 2015), "Mercedes-Benz", "CLS 600", 27000, 2350, 268, 2017, 4);
     Truck* truck1 = new Truck(Engine(120, "g-67", Engine::PETROL, 2016), "Ford", "F-150", 68000, 3250, 210, 2019, 5000);
-    truck1->setCurrentLoad(12000);
+    truck1->setCurrentLoad(1200);
 
     Vehicle* arr[3];
     arr[0] = car1;
