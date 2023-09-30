@@ -1,6 +1,7 @@
 #include <iostream>
 #include "algo1.h"
 #include "algo2.h"
+#include "algo3.h"
 
 
 
@@ -14,7 +15,7 @@ int main(){
 
     std::cout << "Inputed text: " << myStr_1 << "\n" << "Encoded text: " << strEncoded_1 << "\n" << "Decoded text: " << strDecoded_1 << std::endl;
 
-
+    std::cout << "\n---------------------";
     std::cout << "\nՏողեր և Սյուներ\n" << std::endl;
     std::cout <<  "Inputed text: " << std::endl;
     std::srand(static_cast<unsigned int>(std::time(nullptr)));
@@ -57,6 +58,18 @@ int main(){
             std::cout << c << ' '; // Print the character followed by a space
         }
     }
+
+    std::cout << "\n\n---------------------";
+    std::cout << "\nRLE\n" << std::endl;
+
+    Algorithm_3 algorithm;
+    std::string inputStr = "AAABBBCCCDDDD";
+    std::cout <<  "Inputed text:\n" << inputStr <<std::endl;
+
+    std::string encodedStr = algorithm.Encode(inputStr);
+    std::cout << "\nEncoded text:\n" << encodedStr << std::endl;
+    std::string decodedStr = algorithm.Decode(encodedStr);
+    std::cout << "\nDecoded text:\n" << decodedStr << std::endl;
 
     return 0;
 
