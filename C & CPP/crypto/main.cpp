@@ -2,6 +2,7 @@
 #include "algo1.h"
 #include "algo2.h"
 #include "algo3.h"
+#include "algo4.h"
 
 
 
@@ -63,12 +64,26 @@ int main(){
     std::cout << "\nRLE\n" << std::endl;
 
     Algorithm_3 algorithm;
-    std::string inputStr = "AAABBBCCCDDDD";
+    std::string inputStr1 = "00022347799";
+    std::cout <<  "Inputed text:\n" << inputStr1 <<std::endl;
+
+    std::string encodedStr1 = algorithm.Encode(inputStr1);
+    std::cout << "\nEncoded text:\n" << encodedStr1 << std::endl;
+    std::string decodedStr1 = algorithm.Decode(encodedStr1);
+    std::cout << "\nDecoded text:\n" << decodedStr1 << std::endl;
+
+
+
+    std::cout << "\n\n---------------------";
+    std::cout << "\nCesar\n" << std::endl;
+
+    Algorithm_4 caesar(3); // Create a CaesarCipher instance with a shift of 3
+    std::string inputStr = "HELLO";
     std::cout <<  "Inputed text:\n" << inputStr <<std::endl;
 
-    std::string encodedStr = algorithm.Encode(inputStr);
+    std::string encodedStr = caesar.Encode(inputStr);
     std::cout << "\nEncoded text:\n" << encodedStr << std::endl;
-    std::string decodedStr = algorithm.Decode(encodedStr);
+    std::string decodedStr = caesar.Decode(encodedStr);
     std::cout << "\nDecoded text:\n" << decodedStr << std::endl;
 
     return 0;
