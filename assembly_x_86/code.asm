@@ -1,8 +1,9 @@
 %include "io.inc"
 section .data
     array dd 12, 23, 2, 52, 9
-    lenght dd 5
+    length dd 5
     max dd 0
+    count dd 0
 
 section .text
 global main
@@ -13,7 +14,7 @@ main:
 
     xor ebx, ebx        
     
-    mov ecx, [lenght]
+    mov ecx, [length]
     
     xor esi, esi
     
@@ -39,7 +40,29 @@ main:
     mov [max], eax
     
     neg eax
-    PRINT_STRING ", Negative value of maximum: " 
+    NEWLINE
+    PRINT_STRING "Negative value of maximum: " 
     PRINT_DEC 4, eax 
+    
+    xor ebx, ebx
+    ;mov eax, -1 ;for testing code
+    bsr ecx, eax
+    add ecx, 2
+    loop1:
+    dec ecx
+    jz stop1
+    rcr eax, 1
+    jc plus
+    jmp loop1
+    
+    plus:
+    add ebx, 1
+    jmp loop1
+    
+    stop1:
+    mov [count], ebx
+    NEWLINE
+    PRINT_STRING "Count of 1 is: " 
+    PRINT_DEC 4, count
     
     ret
