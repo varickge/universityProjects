@@ -3,6 +3,7 @@
 #include "algo2.h"
 #include "algo3.h"
 #include "algo4.h"
+#include "algo5.h"
 
 
 
@@ -85,6 +86,21 @@ int main(){
     std::cout << "\nEncoded text:\n" << encodedStr << std::endl;
     std::string decodedStr = caesar.Decode(encodedStr);
     std::cout << "\nDecoded text:\n" << decodedStr << std::endl;
+
+
+
+    std::cout << "\n\n---------------------";
+    std::cout << "\nVigenère Cipher\n" << std::endl;
+
+    Algorithm_5 vigenere("LEMON"); 
+    std::string inputStr2 = "ATTACKATDAWN";
+    std::cout << "Inputed text:\n" << inputStr2 << std::endl;
+
+    std::string encodedStr2 = vigenere.Encode(inputStr2);
+    std::cout << "\nEncoded text:\n" << encodedStr2 << std::endl;
+
+    std::string decodedStr2 = vigenere.Decode(encodedStr2);
+    std::cout << "\nDecoded text:\n" << decodedStr2 << std::endl;
 
     return 0;
 
