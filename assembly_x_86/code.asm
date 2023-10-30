@@ -4,6 +4,8 @@ section .data
     length dd 5
     max dd 0
     count dd 0
+    res dd 0
+
 
 section .text
 global main
@@ -39,6 +41,7 @@ main:
     PRINT_DEC 4, eax 
     mov [max], eax
     
+    mov res, eax
     neg eax
     NEWLINE
     PRINT_STRING "Negative value of maximum: " 
@@ -64,5 +67,26 @@ main:
     NEWLINE
     PRINT_STRING "Count of 1 is: " 
     PRINT_DEC 4, count
+
+    xor ecx, ecx
+
+    bsr ecx, res
+    NEWLINE
+    PRINT_STRING "BSR: " 
+    PRINT_DEC 4, ecx
+    NEWLINE
+
+    xor ecx, ecx
+    bsf ecx, res
+    PRINT_STRING "BSR: " 
+    PRINT_DEC 4, ecx
+    NEWLINE
+
+    PRINT_HEX 4, res
+    rol res, 3
+    NEWLINE
+    PRINT_STRING "BSR: " 
+    PRINT_DEC 4, res
+    PRINT_HEX 4, res
     
     ret
